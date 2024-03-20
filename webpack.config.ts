@@ -18,6 +18,7 @@ const config: webpack.Configuration = {
     new webpack.ProgressPlugin(),
   ],
   module: {
+    
     rules: [
       {
         test: /\.tsx?$/,

@@ -11,7 +11,7 @@ const Counter = () => {
     return (
         <div className={classes.btn}>
             <h1>{count}</h1>
-            <button onClick={increment}>increment</button>
+            <button onClick={increment}>increment + </button>
         </div>
     );
 };

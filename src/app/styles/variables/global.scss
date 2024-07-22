@@ -1,4 +1,4 @@
-:root{
+:root {
   --font-family-main: Consolas, "Times New Roman", Serif;
 
   --font-size-m: 16px;
@@ -11,4 +11,7 @@
 
   // Размеры
   --navbar-height: 50px;
+
+  --sidebar-width: 300px;
+  --sidebar-width-collapsed: 80px;
 }

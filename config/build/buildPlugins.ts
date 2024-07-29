@@ -9,7 +9,7 @@ export function buildPlugins({
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   return [
     new HTMLWebpackPlugin({
-      template: paths.html,
+      template: paths.html, 
     }),
     new webpack.ProgressPlugin(),
     new MiniCssExtractPlugin({
@@ -19,5 +19,6 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       __IS__DEV__: JSON.stringify(isDev),
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ];
 }

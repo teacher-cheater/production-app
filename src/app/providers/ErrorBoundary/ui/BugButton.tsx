@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Button from "shared/ui/Button/Button";
+import {Button} from "shared/ui/Button/Button";
 
 // компонент для тестирования
 const BugButton = () => {

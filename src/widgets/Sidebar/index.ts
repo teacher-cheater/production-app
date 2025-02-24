@@ -1,3 +1,5 @@
 import SideBar from "./ui/Sidebar/Sidebar";
 
-export { SideBar };
+export {
+    SideBar
+};

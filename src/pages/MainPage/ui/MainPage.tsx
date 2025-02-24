@@ -1,7 +1,11 @@
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 
-const MainPage = () => {
-    const { t } = useTranslation();
+interface MainPageProps {
+    customText?: string;
+}
+
+const MainPage = ({ customText }: MainPageProps) => {
+    const {t} = useTranslation();
     return (
         <div>
             <div>{t("Главная страница")}</div>

@@ -14,6 +14,11 @@ module.exports = {
         sourceType: "module",
     },
     plugins: ["react", "@typescript-eslint", "i18next"],
+    settings: {
+        react: {
+            version: 'detect',
+        },
+    },
     rules: {
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],

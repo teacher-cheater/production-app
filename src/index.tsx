@@ -1,18 +1,19 @@
-import {render} from "react-dom";
-import App from "./app/App";
-import {BrowserRouter} from "react-router-dom";
-import {ThemeProvider} from "app/providers/ThemeProvider";
+import { render } from 'react-dom';
+// eslint-disable-next-line import/order
+import App from './app/App';
+import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 
-import "shared/config/i18n/i18n";
-import {ErrorBoundary} from "app/providers/ErrorBoundary";
+import 'shared/config/i18n/i18n';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 
 render(
     <BrowserRouter>
         <ErrorBoundary>
             <ThemeProvider>
-                <App/>
+                <App />
             </ThemeProvider>
         </ErrorBoundary>
     </BrowserRouter>,
-    document.getElementById("root")
+    document.getElementById('root'),
 );

@@ -1,10 +1,13 @@
 {
+  "Throw error": "Throw error",
+  "throw error": "throw error",
   "toggle": "toggle",
   "Главная": "",
   "Главная страница": "Главная страница",
   "О сайте": "О сайте",
   "Обновить страницу": "Refresh the page",
+  "Переключить": "Switch",
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Страница не найдена": "Страница не найдена",
-  "Язык": "Язык"
+  "Язык": "Language"
 }

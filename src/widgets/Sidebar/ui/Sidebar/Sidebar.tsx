@@ -10,8 +10,6 @@ interface SidebarProps {
     className?: string;
 }
 
-console.log(ThemeSwitcher);
-
 export const Sidebar = ({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     const { t } = useTranslation();

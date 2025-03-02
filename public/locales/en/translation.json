@@ -4,5 +4,14 @@
   "Главная страница": "Main page",
   "Язык": "English",
   "Страница не найдена" : "Page not found",
-  "toggle" : "toggle"
+  "toggle" : "toggle",
+  "Тестовый пример": "Test example",
+  "новый перевод": "новый перевод",
+  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+  "Обновить страницу": "Reload page",
+  "throw error": "throw error",
+  "Главная": "Main",
+  "О сайте": "About us",
+  "Переключить": "Переключить",
+  "Короткий язык": "En"
 }

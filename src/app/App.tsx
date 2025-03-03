@@ -20,7 +20,9 @@ const App = () => {
                 <Modal
                     isOpen={isOpen}
                     onClose={() => setIsOpen(false)}
-                />
+                >
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis consequuntur cupiditate earum error minima nihil sit voluptate. Accusamus ad at dignissimos distinctio dolorem illum necessitatibus quae quasi ullam voluptatem?
+                </Modal>
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />

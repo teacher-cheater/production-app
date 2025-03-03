@@ -46,6 +46,8 @@ module.exports = {
             { markupOnly: true, ignoreAttribute: ['data-testid', 'to'] },
         ],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
     },
     globals: {
         __IS_DEV__: true,

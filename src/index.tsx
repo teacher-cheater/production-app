@@ -1,4 +1,5 @@
 import { render } from 'react-dom';
+import 'app/styles/index.scss';
 // eslint-disable-next-line import/order
 import App from './app/App';
 import { BrowserRouter } from 'react-router-dom';

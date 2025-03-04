@@ -24,16 +24,15 @@ export const Modal = (props: ModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const closeHandler = () => {
+    const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
-            onClose();
             timerRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
             }, ANIMATION_DELAY);
         }
-    };
+    }, [onClose]);
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
@@ -46,7 +45,6 @@ export const Modal = (props: ModalProps) => {
     };
 
     useEffect(() => {
-        console.log('');
         if (isOpen) {
             window.addEventListener('keydown', onKeyDown);
         }

@@ -8,7 +8,7 @@ interface StoreProviderProps {
     initialState?: StateSchema;
 }
 
-const StoreProvider = (props: StoreProviderProps) => {
+export const StoreProvider = (props: StoreProviderProps) => {
     const {
         children,
         initialState,
@@ -22,5 +22,3 @@ const StoreProvider = (props: StoreProviderProps) => {
         </Provider>
     );
 };
-
-export default StoreProvider;

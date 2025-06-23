@@ -3,7 +3,8 @@
 @import "themes/normal";
 @import "variables/global";
 
-body {
+.app,
+.app_modal {
     font: var(--font-m);
     color: var(--primary-color);
 }

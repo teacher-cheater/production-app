@@ -7,18 +7,19 @@
 .clear {
     padding: 0;
     border: none;
-    outline: none;
     background: none;
+    outline: none;
 }
 
 .clearInverted {
-    @extend.clear;
-
+    padding: 0;
+    border: none;
+    background: none;
+    outline: none;
     color: var(--inverted-primary-color);
 }
 
 .outline {
-    padding: 10px 15px;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     background: none;
@@ -65,4 +66,8 @@
 
 .size_xl {
     font: var(--font-xl);
+}
+
+.disabled {
+    opacity: 0.5;
 }

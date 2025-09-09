@@ -16,7 +16,9 @@ interface LoginFormProps {
 export const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const { username, password, isLoading, error } = useSelector(getLoginState);
+    const {
+        username, password, isLoading, error,
+    } = useSelector(getLoginState);
 
     const onChangeUsername = useCallback(
         (value: string) => {
@@ -38,6 +40,13 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
+            {error && (
+                <div>
+                    {' '}
+                    {error}
+                    {' '}
+                </div>
+            ) }
             <Input
                 autofocus
                 placeholder={t('Введите username')}
@@ -57,6 +66,7 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
                 theme={ButtonTheme.OUTLINE}
                 className={cls.loginBtn}
                 onClick={onLoginClick}
+                disabled={isLoading}
             >
                 {t('Войти')}
             </Button>

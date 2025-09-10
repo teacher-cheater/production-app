@@ -3,7 +3,7 @@ import path from 'path';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 
-export default ({ config }: {config: webpack.Configuration}) => {
+export default ({ config }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
@@ -27,6 +27,10 @@ export default ({ config }: {config: webpack.Configuration}) => {
         use: ['@svgr/webpack'],
     });
     config.module.rules.push(buildCssLoader(true));
+
+    config.plugins.push(new webpack.DefinePlugin({
+        __IS_DEV__: true,
+    }));
 
     return config;
 };

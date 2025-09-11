@@ -5,7 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { DinamicModuleLoader } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader';
+import { DinamicModuleLoader, ReducerList } from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -17,6 +17,10 @@ import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 export interface LoginFormProps {
     className?: string;
 }
+
+const initialReducers: ReducerList = {
+    loginForm: loginReducer,
+};
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
@@ -45,7 +49,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     }, [dispatch, username, password]);
 
     return (
-        <DinamicModuleLoader name="loginForm" reducer={loginReducer}>
+        <DinamicModuleLoader removeAfterUnmount reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
                 {error

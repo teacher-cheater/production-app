@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { Dispatch } from 'react';
-import { StateSchema } from 'app/providers/StoreProviders';
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUsername } from './loginByUsername';

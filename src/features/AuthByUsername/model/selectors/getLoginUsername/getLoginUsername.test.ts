@@ -1,18 +1,18 @@
-import { DeepPartial } from "@reduxjs/toolkit"
-import { StateSchema } from "app/providers/StoreProviders"
-import { getLoginUsername } from "./getLoginUsername"
+import { DeepPartial } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProviders';
+import { getLoginUsername } from './getLoginUsername';
 
-describe('getLoginUsername.test', ()=> {
-    test('should return value', () => { 
+describe('getLoginUsername.test', () => {
+    test('should return value', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
-                username: 'admin'
-            }
-        }
+                username: 'admin',
+            },
+        };
         expect(getLoginUsername(state as StateSchema)).toEqual('admin');
     });
-    test('should work with empty state', () => { 
-        const state: DeepPartial<StateSchema> = {}
+    test('should work with empty state', () => {
+        const state: DeepPartial<StateSchema> = {};
         expect(getLoginUsername(state as StateSchema)).toEqual('');
-    })
+    });
 });

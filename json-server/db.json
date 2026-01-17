@@ -25,14 +25,5 @@
       "password": "123"
     }
   ],
-  "profile": {
-    "first": "Evgeniy",
-    "lastname": "Nekiy",
-    "age": "34",
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Moscow",
-    "username": "admin",
-    "avatar": "https://avatars.githubusercontent.com/u/85887160?v=4"
-  }
+  "profile": { "name": "typicode" }
 }

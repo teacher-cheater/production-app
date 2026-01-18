@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    DinamicModuleLoader,
+    DynamicModuleLoader,
     ReducerList,
-} from 'shared/lib/components/DinamicModuleLoader/DinamicModuleLoader';
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
@@ -57,7 +57,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     }, [onSuccess, dispatch, username, password]);
 
     return (
-        <DinamicModuleLoader removeAfterUnmount reducers={initialReducers}>
+        <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
                 {error && (
@@ -90,7 +90,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     {t('Войти')}
                 </Button>
             </div>
-        </DinamicModuleLoader>
+        </DynamicModuleLoader>
     );
 });
 

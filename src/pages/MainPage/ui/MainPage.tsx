@@ -1,10 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-interface MainPageProps {
-    customText?: string;
-}
-
-const MainPage = ({ customText }: MainPageProps) => {
+const MainPage = () => {
     const { t } = useTranslation();
     return (
         <div>

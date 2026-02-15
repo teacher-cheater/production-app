@@ -2,5 +2,9 @@
   "Профиль": "Profile",
   "Редактировать": "Edit",
   "Введите Ваше имя" : "Enter your name",
-  "Введите Вашу фамилию" : "Enter your last name"
+  "Введите Вашу фамилию" : "Enter your last name",
+  "Попробуйте обновить страницу": "Try refreshing the page",
+  "Произошла непредвиденная ошибка": "An unexpected error has occurred",
+  "Произошла ошибка при загрузке профиля": "There was an error loading your profile."
+
 }

@@ -49,12 +49,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         <div
             className={classNames(cls.ProfileCard, {}, [className])}
         >
-            <div className={classNames(cls.header)}>
-                <Text title={t('Профиль')} />
-                <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE}>
-                    {t('Редактировать')}
-                </Button>
-            </div>
             <div className={cls.data}>
                 <Input value={data?.first} placeholder={t('Введите Ваше имя')} className={cls.input} />
                 <Input value={data?.lastname} placeholder={t('Введите Вашу фамилию')} className={cls.input} />

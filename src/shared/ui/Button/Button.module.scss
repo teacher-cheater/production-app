@@ -4,6 +4,7 @@
     padding: 6px 15px;
 }
 
+
 .clear {
     padding: 0;
     border: none;
@@ -24,6 +25,13 @@
     color: var(--primary-color);
     background: none;
 }
+
+.outline-red {
+    border: 1px solid var(--red-light);
+    color: var(--red-light);
+    background: none;
+}
+
 
 .background {
     background: var(--bg-color);

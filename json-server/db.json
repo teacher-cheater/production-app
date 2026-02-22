@@ -28,10 +28,10 @@
   "profile": {
     "first": "Evgeniy",
     "lastname": "Nekiy",
-    "age": "34",
+    "age": 35,
     "currency": "RUB",
     "country": "Russia",
-    "city": "Moscow",
+    "city": "Spb",
     "username": "admin",
     "avatar": "https://avatars.githubusercontent.com/u/85887160?v=4"
   }

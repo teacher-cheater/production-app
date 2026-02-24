@@ -4,6 +4,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -58,7 +59,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
             className={classNames(cls.ProfileCard, {}, [className])}
         >
             <div className={cls.data}>
-                {data?.avatar && <img src={data?.avatar} alt={data.avatar} /> }
+                {data?.avatar && (
+                    <div className={cls.avatarWrapper}>
+                        <Avatar src={data?.avatar} />
+                    </div>
+                ) }
                 <Input
                     value={data?.first}
                     placeholder={t('Введите Ваше имя')}
@@ -98,7 +103,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     value={data?.avatar}
                     placeholder={t('Добавьте ссылку на аватар')}
                     className={cls.input}
-                    onChange={onChangeUsername}
+                    onChange={onChangeAvatar}
                     readonly={readonly}
                 />
             </div>

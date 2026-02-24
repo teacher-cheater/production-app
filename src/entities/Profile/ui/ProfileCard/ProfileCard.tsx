@@ -13,15 +13,18 @@ interface ProfileCardProps {
     isLoading?: boolean;
     error?: string;
     readonly?: boolean;
-    onChangeLastName: (value?: string) => void;
-    onChangeFirstName: (value?: string) => void;
-    onChangeAge: (value?: string) => void;
-    onChangeCity: (value?: string) => void;
+    onChangeLastName?: (value?: string) => void;
+    onChangeFirstName?: (value?: string) => void;
+    onChangeAge?: (value?: string) => void;
+    onChangeCity?: (value?: string) => void;
+    onChangeUsername?: (value?: string) => void;
+    onChangeAvatar?: (value?: string) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
     const {
         className, data, isLoading, error, onChangeLastName, onChangeFirstName, readonly, onChangeAge, onChangeCity,
+        onChangeUsername, onChangeAvatar,
     } = props;
     const { t } = useTranslation('profile');
 
@@ -55,6 +58,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
             className={classNames(cls.ProfileCard, {}, [className])}
         >
             <div className={cls.data}>
+                {data?.avatar && <img src={data?.avatar} alt={data.avatar} /> }
                 <Input
                     value={data?.first}
                     placeholder={t('Введите Ваше имя')}
@@ -81,6 +85,20 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Введите Ваш город')}
                     className={cls.input}
                     onChange={onChangeCity}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.username}
+                    placeholder={t('Введите имя пользователя')}
+                    className={cls.input}
+                    onChange={onChangeUsername}
+                    readonly={readonly}
+                />
+                <Input
+                    value={data?.avatar}
+                    placeholder={t('Добавьте ссылку на аватар')}
+                    className={cls.input}
+                    onChange={onChangeUsername}
                     readonly={readonly}
                 />
             </div>

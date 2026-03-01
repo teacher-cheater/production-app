@@ -1,6 +1,6 @@
 import {
     fetchProfileData, ProfileCard, profileReducer, getProfileData, getProfileIsLoading, getProfileError, profileActions,
-    getProfileForm,
+    getProfileForm, getProfileReadonly,
 } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
-    const readonly = useSelector(getProfileIsLoading);
+    const readonly = useSelector(getProfileReadonly);
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -65,8 +65,8 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
                     data={formData}
                     isLoading={isLoading}
                     error={error}
-                    onChangeFirstName={onChangeFirstName}
-                    onChangeLastName={onChangeLastName}
+                    onChangeFirstname={onChangeFirstName}
+                    onChangeLastname={onChangeLastName}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
                     onChangeAvatar={onChangeAvatar}

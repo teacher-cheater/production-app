@@ -5,9 +5,10 @@ import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Select } from 'shared/ui/Select/Select';
-import { Country } from 'shared/const/common';
 import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
+import { Country } from 'entities/Country/model/types/country';
+import { CountrySelect } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 
@@ -126,15 +127,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                     className={cls.input}
                 />
-                <Select
-                    label={t('Укажите страну')}
-                    options={[
-                        { value: Country.Russia, content: Country.Russia },
-                        { value: Country.Belarus, content: Country.Belarus },
-                        { value: Country.Ukraine, content: Country.Ukraine },
-                        { value: Country.Kazakhstan, content: Country.Kazakhstan },
-                        { value: Country.Armenia, content: Country.Armenia },
-                    ]}
+                <CountrySelect
+                    value={data?.country}
+                    onChange={onChangeCountry}
+                    readonly={readonly}
+                    className={cls.input}
                 />
             </div>
         </div>

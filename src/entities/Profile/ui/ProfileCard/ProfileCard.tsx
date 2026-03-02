@@ -62,8 +62,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
         [cls.editing]: !readonly,
     };
 
-    console.log('readonly', readonly);
-
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>

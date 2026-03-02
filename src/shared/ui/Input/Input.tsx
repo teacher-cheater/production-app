@@ -30,7 +30,6 @@ export const Input = memo((props: InputProps) => {
     const [caretPosition, setCaretPosition] = useState(0);
 
     const isCaretVisible = isFocused && !readonly;
-    console.log('isCaretVisible', isCaretVisible);
 
     useEffect(() => {
         if (autofocus) {

@@ -1,5 +1,6 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { ChangeEvent, memo, useMemo } from 'react';
 import cls from './Select.module.scss';
 
 export interface SelectOptions {
@@ -13,11 +14,23 @@ interface SelectProps {
     options?: SelectOptions[];
     value?: string;
     onChange?: (value: string) => void;
+    readOnly?: boolean;
 }
 
-export const Select = (props: SelectProps) => {
-    const { className, label, options } = props;
+export const Select = memo((props: SelectProps) => {
+    const {
+        className, label, options, onChange, value, readOnly,
+    } = props;
     const { t } = useTranslation();
+
+    function onChangeHandler(e: ChangeEvent<HTMLSelectElement>) {
+        onChange?.(e.target.value);
+    }
+
+    const optionsList = useMemo(() => options?.map((opt) => (
+        <option className={cls.option} value={opt.value} key={opt.value}>{opt.content}</option>
+    )), [options]);
+
     const mods: Mods = {};
 
     return (
@@ -30,11 +43,14 @@ export const Select = (props: SelectProps) => {
                 </span>
             )}
 
-            <select className={classNames(cls.select, mods, [className])}>
-                <option value="">123</option>
-                <option value="">333</option>
-                <option value="">555</option>
+            <select
+                onChange={onChangeHandler}
+                value={value}
+                className={classNames(cls.select, mods, [className])}
+                disabled={readOnly}
+            >
+                {optionsList}
             </select>
         </div>
     );
-};
+});

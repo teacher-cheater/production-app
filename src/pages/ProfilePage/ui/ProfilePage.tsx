@@ -1,4 +1,5 @@
 import {
+    fetchProfileData,
     getProfileError,
     getProfileForm,
     getProfileIsLoading,
@@ -46,6 +47,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     };
 
     useEffect(() => {
+        if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData);
     }, [dispatch]);
 
     const onChangeFirstName = useCallback((value?: string) => {

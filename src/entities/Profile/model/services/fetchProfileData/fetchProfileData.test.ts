@@ -16,10 +16,9 @@ const data = {
 
 describe('fetchProfileData.test', () => {
     test('success', async () => {
-        const userValue = { username: '123', id: '1' };
-
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ data }));
+
         const result = await thunk.callThunk();
 
         expect(thunk.api.get).toHaveBeenCalled();
@@ -31,6 +30,7 @@ describe('fetchProfileData.test', () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk();
+
         expect(result.meta.requestStatus).toBe('rejected');
     });
 });

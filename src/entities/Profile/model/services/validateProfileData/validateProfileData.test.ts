@@ -52,7 +52,7 @@ describe('validateProfileData.test', () => {
     });
 
     test('incorrect all', async () => {
-        const result = validateProfileData();
+        const result = validateProfileData({});
 
         expect(result).toEqual([
             ValidateProfileError.INCORRECT_USER_DATA,

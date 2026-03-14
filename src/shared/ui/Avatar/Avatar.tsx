@@ -13,6 +13,8 @@ export const Avatar = ({ className, src, size }: AvatarProps) => {
     const { t } = useTranslation();
     const mods: Mods = {};
 
+    console.log('Avatar', src);
+
     const styles = useMemo<CSSProperties>(() => ({
         width: size || 100,
         height: size || 100,

@@ -44,6 +44,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCurrency,
         onChangeCountry,
     } = props;
+    console.log('Profile', data);
     const { t } = useTranslation('profile');
 
     if (isLoading) {
@@ -70,7 +71,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     const mods: Mods = {
         [cls.editing]: !readonly,
     };
-
+    console.log('data?.avatar', data);
     return (
         <div className={classNames(cls.ProfileCard, mods, [className])}>
             <div className={cls.data}>

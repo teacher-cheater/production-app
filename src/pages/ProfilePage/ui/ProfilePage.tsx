@@ -37,7 +37,6 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
-
     const validateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t('Сереверная ошибка при сохранении'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Неорректный регион'),
@@ -47,7 +46,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     };
 
     useEffect(() => {
-        if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData);
+        if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData());
     }, [dispatch]);
 
     const onChangeFirstName = useCallback((value?: string) => {

@@ -1,19 +1,61 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { memo, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Text, TextAlign } from 'shared/ui/Text/Text';
+import {
+    getArticleDetailsData,
+    getArticleDetailsError,
+    getArticleDetailsIsLoading,
+} from '../../model/selectors/articleDetails';
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import cls from './ArticleDetails.module.scss';
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 
 interface ArticleDetailsProps {
     className?: string;
+    id: string;
 }
 
-export const ArticleDetails = ({ className }: ArticleDetailsProps) => {
+const reducers: ReducerList = {
+    articleDetails: articleDetailsReducer,
+};
+
+export const ArticleDetails = memo((props: ArticleDetailsProps) => {
+    const { className, id } = props;
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const isLoading = useSelector(getArticleDetailsIsLoading);
+    const error = useSelector(getArticleDetailsError);
+    const article = useSelector(getArticleDetailsData);
+
+    useEffect(() => {
+        dispatch(fetchArticleById(id));
+    }, [dispatch, id]);
+
+    let content;
+
+    if (isLoading) {
+        content = (
+            <div>Loading...</div>
+        );
+    } else if (error) {
+        content = (
+            <Text align={TextAlign.CENTER} title={t('Произошла ошибки при загрузке статьи')} />
+        );
+    } else {
+        content = (
+            <div>
+                article
+            </div>
+        );
+    }
 
     return (
-        <div
-            className={classNames(cls.ArticleDetails, {}, [className])}
-        >
-            ARTICLE_DETAILS
-        </div>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+            {content}
+        </DynamicModuleLoader>
     );
-};
+});
